@@ -1,35 +1,81 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Box from "@mui/material/Box";
+import { DataGrid } from "@mui/x-data-grid";
 
+const columns = [
+  {
+    field: "employeeName",
+    headerName: "",
+    width: 100,
+    editable: true,
+  },
+  {
+    field: "monday",
+    headerName: "Monday",
+    type: "dropdown",
+    width: 100,
+    editable: true,
+    textAlign: "center",
+  },
+  {
+    field: "tuesday",
+    headerName: "Tuesday",
+    type: "button",
+    width: 100,
+    editable: true,
+  },
+  {
+    field: "wednesday",
+    headerName: "Wednesday",
+    type: "button",
+    width: 100,
+    editable: true,
+  },
+  {
+    field: "thursday",
+    headerName: "Thursday",
+    type: "button",
+    width: 100,
+    editable: true,
+  },
+  {
+    field: "friday",
+    headerName: "Friday",
+    type: "button",
+    width: 100,
+    editable: true,
+  },
+  {
+    field: "saturday",
+    headerName: "Saturday",
+    type: "button",
+    width: 100,
+    editable: true,
+  },
+];
+
+const rows = [
+  { id: 1, employeeName: "Amber D" },
+  { id: 2, employeeName: "Amber R" },
+  { id: 3, employeeName: "Austin" },
+  { id: 4, employeeName: "Brian" },
+  { id: 5, employeeName: "Cass" },
+  { id: 6, employeeName: "Cierra" },
+  { id: 7, employeeName: "Chris" },
+  { id: 8, employeeName: "Macie" },
+  { id: 9, employeeName: "Ray" },
+  { id: 10, employeeName: "Sky" },
+];
+
+export default function DataGridDemo() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Box sx={{ height: "90vh", width: "100%" }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        disableRowSelectionOnClick
+      />
+    </Box>
+  );
 }
-
-export default App
